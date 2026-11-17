@@ -30,7 +30,8 @@ pub struct Config {
     pub day_start_hour: u8,
     /// Файл для OBS; `null` — `%APPDATA%\Solonka\count.txt`.
     pub output_file: Option<PathBuf>,
-    /// Текст в файле, `{count}` заменяется числом.
+    /// Текст в файле, `{count}` заменяется числом. По умолчанию только число:
+    /// подпись нарисована на подложке `overlay.png`.
     pub template: String,
     pub obs_url: String,
     pub obs_password: String,
@@ -56,7 +57,7 @@ impl Default for Config {
             reset_mode: ResetMode::Manual,
             day_start_hour: 5,
             output_file: None,
-            template: "Маты: {count}".into(),
+            template: "{count}".into(),
             obs_url: DEFAULT_OBS_URL.into(),
             obs_password: String::new(),
             vad_min_level: 0.004,
@@ -78,8 +79,15 @@ impl Config {
     pub fn load() -> (Config, Option<String>) {
         let path = Self::path();
         match std::fs::read_to_string(&path) {
-            Ok(s) => match serde_json::from_str(s.trim_start_matches('\u{feff}')) {
-                Ok(c) => (c, None),
+            Ok(s) => match serde_json::from_str::<Config>(s.trim_start_matches('\u{feff}')) {
+                Ok(mut c) => {
+                    // До 1.0.1 по умолчанию было «Маты: {count}»; теперь подпись на подложке.
+                    if c.template == "Маты: {count}" {
+                        c.template = "{count}".into();
+                        c.save();
+                    }
+                    (c, None)
+                }
                 Err(e) => (
                     Config::default(),
                     Some(format!("Ошибка в {}:\n{e}", path.display())),

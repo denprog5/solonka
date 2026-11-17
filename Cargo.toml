@@ -1,6 +1,6 @@
 [package]
 name = "solonka"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 description = "Счётчик русского мата для стримов: трей, офлайн-распознавание речи, вывод в OBS"
 license = "MIT"

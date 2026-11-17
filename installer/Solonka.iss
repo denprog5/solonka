@@ -5,7 +5,7 @@
 ;                (его скачивает встроенное автообновление), Solonka-Update-<версия>.exe
 
 #ifndef AppVersion
-  #define AppVersion "1.0.0"
+  #define AppVersion "1.0.1"
 #endif
 #ifndef BinDir
   #define BinDir "..\target\release"
@@ -72,6 +72,8 @@ Source: "{#BinDir}\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#BinDir}\models\gigaam-v2-ru\model.int8.onnx"; DestDir: "{app}\models\gigaam-v2-ru"; Flags: ignoreversion
 Source: "{#BinDir}\models\gigaam-v2-ru\tokens.txt"; DestDir: "{app}\models\gigaam-v2-ru"; Flags: ignoreversion
 #endif
+; Готовая подложка для OBS — рядом с count.txt, чтобы оба файла были в одной папке.
+Source: "..\assets\overlay.png"; DestDir: "{userappdata}\Solonka"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#AppName}"; Filename: "{app}\{#AppExe}"
