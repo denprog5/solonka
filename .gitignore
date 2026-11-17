@@ -1,0 +1,5 @@
+/target
+/models
+/dist
+*.wav
+*.sfk
