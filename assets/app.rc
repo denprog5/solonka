@@ -5,9 +5,13 @@
 3 ICON "tray-busy.ico"
 4 ICON "tray-error.ico"
 
+// Манифест (RT_MANIFEST = 24): без него exe без подписи выглядит для эвристик антивирусов
+// подозрительнее — asInvoker явно говорит, что права администратора не нужны.
+1 24 "app.manifest"
+
 1 VERSIONINFO
-FILEVERSION 1,0,1,0
-PRODUCTVERSION 1,0,1,0
+FILEVERSION 1,0,2,0
+PRODUCTVERSION 1,0,2,0
 FILEOS 0x40004
 FILETYPE 0x1
 BEGIN
@@ -15,10 +19,13 @@ BEGIN
   BEGIN
     BLOCK "041904B0"
     BEGIN
+      VALUE "CompanyName", "denprog5"
       VALUE "FileDescription", "Солонка — счётчик мата для стрима"
+      VALUE "InternalName", "solonka"
+      VALUE "LegalCopyright", "© 2026 denprog5, MIT"
       VALUE "ProductName", "Солонка"
-      VALUE "FileVersion", "1.0.1"
-      VALUE "ProductVersion", "1.0.1"
+      VALUE "FileVersion", "1.0.2"
+      VALUE "ProductVersion", "1.0.2"
       VALUE "OriginalFilename", "solonka.exe"
     END
   END
