@@ -30,6 +30,9 @@ use recognizer::{Ctrl, Recognizer};
 use status::{Engine, Obs, SharedStatus, Status};
 use update::Updater;
 
+/// Канал автора: пункт меню «Автор» открывает его в браузере.
+const AUTHOR_URL: &str = "https://www.twitch.tv/banshee_nt";
+
 const MODES: [(ResetMode, &str); 3] = [
     (ResetMode::Manual, "Только вручную"),
     (ResetMode::Daily, "Каждый день"),
@@ -53,6 +56,7 @@ struct Menus {
     open_folder: MenuItem,
     autostart: CheckMenuItem,
     update: MenuItem,
+    author: MenuItem,
     quit: MenuItem,
 }
 
@@ -209,6 +213,7 @@ fn build_menu(cfg: &Config) -> Menus {
             true,
             None,
         ),
+        author: MenuItem::new("Автор: banshee — стримы на Twitch", true, None),
         quit: MenuItem::new("Выход", true, None),
     };
     let reset_sub = Submenu::new("Автосброс", true);
@@ -233,6 +238,7 @@ fn build_menu(cfg: &Config) -> Menus {
         &sep(),
         &m.autostart,
         &m.update,
+        &m.author,
         &m.quit,
     ]);
     let mut m = m;
@@ -302,6 +308,8 @@ impl App {
             } else {
                 self.updater.check_now();
             }
+        } else if id == m.author.id() {
+            win::shell_open(AUTHOR_URL, None);
         }
     }
 

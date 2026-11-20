@@ -4,6 +4,11 @@
   <a href="https://github.com/denprog5/solonka/releases/latest"><img src="https://img.shields.io/github/v/release/denprog5/solonka?label=%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C&color=e53935" alt="Скачать"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078d4" alt="Windows 10/11">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/denprog5/solonka?color=6a5acd" alt="MIT"></a>
+  <a href="https://www.twitch.tv/banshee_nt"><img src="https://img.shields.io/badge/Twitch-banshee__nt-9146ff?logo=twitch&logoColor=white" alt="Twitch: banshee_nt"></a>
+</p>
+
+<p align="center">
+  Автор — <b>banshee</b> · стримы на Twitch: <a href="https://www.twitch.tv/banshee_nt"><b>twitch.tv/banshee_nt</b></a>
 </p>
 
 **Солонка** слушает микрофон и считает русский мат. Число выводится в OBS, а сама программа тихо сидит в трее.
@@ -56,6 +61,7 @@
 - **Открыть настройки** открывает `config.json`, а **Перечитать настройки** применяет правки без перезапуска.
 - **Запускать вместе с Windows** включает и выключает автозапуск.
 - **Проверить обновления** ищет новую версию на GitHub.
+- **Автор: banshee** открывает [Twitch-канал автора](https://www.twitch.tv/banshee_nt).
 
 ## Настройки: `%APPDATA%\Solonka\config.json`
 
@@ -110,6 +116,16 @@ powershell -ExecutionPolicy Bypass -File scripts\build-installer.ps1
 - `cargo test` — тесты;
 - `powershell -File scripts\fetch-model.ps1 -Dest target\debug` — скачать модель для отладочной сборки;
 - `target\debug\solonka.exe --wav запись.wav` — прогнать WAV через распознавание и посмотреть, что насчиталось.
+
+## Автор
+
+<p align="center">
+  <a href="https://www.twitch.tv/banshee_nt"><img src="docs/author-banner.png" alt="banshee — twitch.tv/banshee_nt" width="100%"></a>
+</p>
+
+Автор Солонки — **banshee**. Стримы на Twitch: **[twitch.tv/banshee_nt](https://www.twitch.tv/banshee_nt)**.
+
+Если программа пригодилась, лучшее спасибо — зайти на стрим, оставить фоллоу и сказать в чате, сколько Солонка насчитала у вас. Туда же — идеи и слова, которые она пропускает.
 
 ## Благодарности
 

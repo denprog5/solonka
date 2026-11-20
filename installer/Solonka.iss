@@ -27,6 +27,7 @@ AppPublisher=denprog5
 AppPublisherURL=https://github.com/denprog5/solonka
 AppSupportURL=https://github.com/denprog5/solonka/issues
 AppUpdatesURL=https://github.com/denprog5/solonka/releases
+AppComments=Автор — banshee, стримы на twitch.tv/banshee_nt
 VersionInfoVersion={#AppVersion}
 DefaultDirName={autopf}\Solonka
 DefaultGroupName={#AppName}
@@ -86,6 +87,8 @@ Root: HKCU; Subkey: "{#RunKey}"; ValueType: string; ValueName: "Solonka"; ValueD
 
 [Run]
 Filename: "{app}\{#AppExe}"; Description: "Запустить {#AppName}"; Flags: nowait postinstall skipifsilent
+; Галочка выключена по умолчанию; при тихом обновлении страница не показывается.
+Filename: "https://www.twitch.tv/banshee_nt"; Description: "Заглянуть на стрим автора — twitch.tv/banshee_nt"; Flags: shellexec nowait postinstall skipifsilent unchecked
 ; Автообновление запускает установщик с /RELAUNCH=1 — после него программа стартует снова.
 Filename: "{app}\{#AppExe}"; Flags: nowait; Check: IsRelaunch
 
